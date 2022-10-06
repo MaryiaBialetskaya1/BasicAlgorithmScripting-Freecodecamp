@@ -1,4 +1,4 @@
-//Palindrome Checker
+//Palindrome Checker.js
 
 //Return true if the given string is a palindrome. Otherwise, return false.
 
@@ -9,6 +9,15 @@
 //We'll pass strings with varying formats, such as racecar, RaceCar, and race CAR among others.
 
 //We'll also pass strings with special symbols, such as 2A3*3a2, 2A3 3a2, and 2_A3*3#A2.
+
+
+function palindrome(str) {
+    let re = /[^A-Za-z0-9]/g;
+    let lowRegStr = str.toLowerCase().replace(re, '');
+    let reverseStr = lowRegStr.split('').reverse().join('');
+    return reverseStr === lowRegStr;
+}
+palindrome("eye");
 
 
 
