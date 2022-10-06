@@ -12,12 +12,52 @@
 
 
 function palindrome(str) {
-    let re = /[^A-Za-z0-9]/g;
+    let re = /[^A-Za-z0-9]/g; // /[\W_]/g;
     let lowRegStr = str.toLowerCase().replace(re, '');
     let reverseStr = lowRegStr.split('').reverse().join('');
     return reverseStr === lowRegStr;
 }
 palindrome("eye");
+
+
+//EXPLANATION:
+
+/*step 1: use RegExp to remove unwanted characters from it -> let re = /[^A-Za-z0-9]/g;
+
+let lowRegStr = str.toLowerCase().replace(re, ''); ->
+
+str.toLowerCase() = "A man, a plan, a canal. Panama".toLowerCase() = "a man, a plan, a canal. panama"
+
+str.replace([^A-Za-z0-9]/g, '') = "a man, a plan, a canal. panama".replace(/[\W_]/g, '') = "amanaplanacanalpanama"
+
+let lowRegStr = "amanaplanacanalpanama";
+  */
+
+/*step 2: Use chaining methods with built-in functions
+
+let reverseStr = lowRegStr.split('').reverse().join(''); ->
+
+lowRegStr.split('') = "amanaplanacanalpanama".split('') = ["a", "m", "a", "n", "a", "p", "l", "a", "n", "a", "c", "a", "n", "a", "l", "p", "a", "n", "a", "m", "a"]
+
+
+["a", "m", "a", "n", "a", "p", "l", "a", "n", "a", "c", "a", "n", "a", "l", "p", "a", "n", "a", "m", "a"].reverse() = ["a", "m", "a", "n", "a", "p", "l", "a", "n", "a", "c", "a", "n", "a", "l", "p", "a", "n", "a", "m", "a"]
+
+["a", "m", "a", "n", "a", "p", "l", "a", "n", "a", "c", "a", "n", "a", "l", "p", "a", "n", "a", "m", "a"].join('') = "amanaplanacanalpanama"
+
+So, "amanaplanacanalpanama".split('').reverse().join('') = "amanaplanacanalpanama";
+
+And, let reverseStr = "amanaplanacanalpanama";
+
+*/
+
+/*
+Step 3. Check if reverseStr is strictly equals to lowRegStr and return a Boolean
+
+return reverseStr === lowRegStr; // "amanaplanacanalpanama" === "amanaplanacanalpanama"? => true
+ */
+
+
+
 
 
 
